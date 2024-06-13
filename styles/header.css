@@ -1,0 +1,188 @@
+.cabecalho__menu-hamburguer {
+  width: 24px;
+  height: 24px;
+  background-image: url("../assets/Menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.container__botao:checked ~ .container__label > .cabecalho__menu-hamburguer {
+  background-image: url("../assets/Menu\ Aberto.svg");
+}
+
+.container__botao:checked ~ .container__label {
+  background-color: var(--azul);
+}
+
+.cabecalho {
+  background-color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* serve para conseguir utilizar o position absolute */
+  position: relative;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container_imagem {
+  padding: 1em;
+}
+
+.lista_menu {
+  display: none;
+  /* serve para conseguir posicionar o elemento em um lugar especifico da tela */
+  position: absolute;
+  top: 100%;
+  width: 60vw;
+}
+
+/* caso o container botao estiver CHECKED, ele vai alterar as proriedades do LISTA-MENU*/
+.container__botao:checked ~ .lista_menu {
+  display: block;
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+  padding: 1em;
+  background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+  color: var(--laranja);
+  font-weight: 700;
+}
+
+.lista-menu__item > a {
+  text-decoration: none;
+}
+
+.lista-menu__item {
+  color: var(--azul);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.lista-menu__item :visited {
+  color: var(--azul);
+}
+
+.container__botao,
+.opcoes__botao {
+  display: none;
+}
+
+.container__titulo {
+  display: none;
+  text-align: center;
+  padding-left: 0.5em;
+  font-weight: 400;
+}
+
+.opcoes {
+  display: none;
+}
+
+.opcoes__item-ancora {
+  text-decoration: none;
+  color: var(--azul);
+}
+
+.container__texto {
+  display: none;
+}
+
+/* diz que se o tamanho da tela for maior que 1024 ele vai usar esse estilo */
+@media screen and (min-width: 1024px) {
+  .container__titulo {
+    display: block;
+    font-family: var(--fonte-logo);
+    font-size: 30px;
+  }
+  .container__titulo-negrito {
+    font-weight: 700;
+    font-family: var(--fonte-logo);
+  }
+  .cabecalho__menu-hamburguer,
+  .container__favorito {
+    display: none;
+  }
+
+  .container__imagem__logo {
+    padding-left: 2.5em;
+  }
+
+  .opcoes {
+    display: flex;
+    gap: 2em;
+  }
+
+  .opcoes__item {
+    color: var(--azul);
+    padding: 0.75em;
+    margin: 0.5em 0em;
+    background: transparent;
+  }
+
+  .opcoes__item:hover {
+    display: flex;
+    background: var(--azul);
+    color: var(--branco);
+  }
+
+  .opcoes__item-ancora:visited {
+    color: var(--azul);
+  }
+
+  .opcoes__item-ancora:visited:hover {
+    color: var(--branco);
+  }
+
+  .opcoes__botao:checked ~ .lista_menu {
+    display: block;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1728px) {
+  .botao__container__ancora {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: 10vw;
+  }
+
+  .botoes__container__ancora {
+    margin-right: 2.5%;
+    gap: 2%;
+  }
+
+  .container__titulo {
+    margin-right: 1em;
+  }
+
+  .opcoes {
+    margin-right: auto;
+  }
+
+  .container__texto {
+    display: block;
+    text-decoration: none;
+    color: var(--azul);
+  }
+
+  .container__texto :visited {
+    text-decoration: none;
+    color: var(--azul);
+  }
+}
